@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if "инженер" in prof %}
+    <h2>Инженерные тренажёры</h2>
+    <img src="/static/img/img.png" alt="тут должна была быть картинка">
+
+    {% else %}
+    <h2>Научные симуляторы</h2>
+    <img src="/static/img/sci.png" alt="тут должна была быть картинка">
+
+    {% endif %}
+{% endblock %}
