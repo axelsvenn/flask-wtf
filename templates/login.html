@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1><img src={{ photo }} alt="здесь должна была быть картинка, но не нашлась">Аварийный доступ</h1>
+<h1 class="img_test">Аварийный доступ</h1><br>
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
     <p>
-    <h6>Id астронавта</h6><br>
+    <h6>Id астронавта</h6>
         {{ form.username(class="form-control") }}<br>
         {% for error in form.username.errors %}
     <div class="alert alert-danger" role="alert">

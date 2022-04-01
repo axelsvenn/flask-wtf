@@ -12,7 +12,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         return redirect('/success')
-    return render_template('login.html', title='Анкета', form=form, photo=url_for('static', filename='img/mission_small.png'))
+    return render_template('login.html', title='Аварийный доступ', form=form, css_file=url_for('static', filename='css/style.css'))
 
 
 if __name__ == '__main__':
