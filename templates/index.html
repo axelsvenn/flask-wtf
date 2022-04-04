@@ -5,7 +5,7 @@
 
 {% for user in users %}
 
-{% if loop.index == 1 %}
+{% if loop.first %}
 <h3>{{user}} - Каюта № {{loop.index}} - капитан корабля</h3>
 
 {% else %}
