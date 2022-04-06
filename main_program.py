@@ -6,13 +6,13 @@ app = Flask(__name__)
 @app.route('/table_param/<sex>/<age>')
 def table_param(sex, age):
     if sex == "male":
-        photo, color = (url_for('static', filename='img/adult.png'), "#0000CD") if int(age) >= 21 else \
-            (url_for('static', filename='img/young'), "#4169E1")
+        photo, colour = (url_for('static', filename='img/adult.png'), "background-color: #0000CD;") if int(age) >= 21 else \
+            (url_for('static', filename='img/young.jpg'), "background-color: #4169E1;")
     else:
-        photo, color = (url_for('static', filename='img/adult.png'), "#FF4500") if int(age) >= 21 else \
-            (url_for('static', filename='img/young'), "#FFA07A")
+        photo, colour = (url_for('static', filename='img/adult.png'), "background-color: #FF4500;") if int(age) >= 21 else \
+            (url_for('static', filename='img/young.jpg'), "background-color: #FFA07A;")
 
-    return render_template('index.html', photo=photo, color=color)
+    return render_template('index.html', photo=photo, colour=colour)
 
 
 if __name__ == '__main__':
