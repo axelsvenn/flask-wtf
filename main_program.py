@@ -12,6 +12,7 @@ def table_param(sex, age):
         photo, colour = (url_for('static', filename='img/adult.png'), "background-color: #FF4500;") if int(age) >= 21 else \
             (url_for('static', filename='img/young.jpg'), "background-color: #FFA07A;")
 
+    colour = colour + " width: 450px; height: 400px;"
     return render_template('index.html', photo=photo, colour=colour)
 
 
