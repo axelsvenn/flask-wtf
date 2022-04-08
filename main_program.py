@@ -15,7 +15,7 @@ def carousel():
         with open(f"static/img/photo{i}.png", 'wb') as fd:
             f = request.files["file"]
             fd.write(f.read())
-            i, params = i + 1, url_for("static", filename=f"img/photo{i}.png")
+            i, params["photos"] = i + 1, params["photos"] + [url_for("static", filename=f"img/photo{i}.png")]
 
         return "Форма отправлена"
 
