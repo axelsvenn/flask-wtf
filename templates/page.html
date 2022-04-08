@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1 align="center">Пейзажи Марса</h1>
+    {% block carousel %}{% endblock %}
+    <form class="login_form" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="photo">Добавить картинку</label><br>
+            <input type="file" class="form-control-file" id="photo" name="file">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+</div>
+
+{% endblock %}
