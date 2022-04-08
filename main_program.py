@@ -10,11 +10,13 @@ def carousel():
         return render_template('carousel.html', **params)
 
     elif request.method == 'POST':
+        global i
+
         with open(f"static/img/photo{i}.png", 'wb') as fd:
             f = request.files["file"]
             fd.write(f.read())
-            global i
-            i += 1
+            i, params = i + 1, url_for("static", filename=f"img/photo{i}.png")
+
         return "Форма отправлена"
 
 
