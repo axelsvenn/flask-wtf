@@ -8,10 +8,7 @@ def carousel():
     params = {"title": "Красная планета",
               "css_file": url_for('static', filename='css/style.css'), "photos": photos}
 
-    if request.method == 'GET':
-        return render_template('carousel.html', **params)
-
-    elif request.method == 'POST':
+    if request.method == 'POST':
         global i
 
         with open(f"static/img/photo{i}.png", 'wb') as fd:
@@ -19,7 +16,7 @@ def carousel():
             fd.write(f.read())
             i, params["photos"] = i + 1, params["photos"] + [url_for("static", filename=f"img/photo{i}.png")]
 
-        return render_template('carousel.html', **params)
+    return render_template('carousel.html', **params)
 
 
 if __name__ == '__main__':
