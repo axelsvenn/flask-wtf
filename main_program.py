@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for
 
-app, i, photos = Flask(__name__), 1, []
+app, i, photos = Flask(__name__), 1, list()
 
 
 @app.route('/carousel', methods=['POST', 'GET'])
@@ -19,7 +19,7 @@ def carousel():
             fd.write(f.read())
             i, params["photos"] = i + 1, params["photos"] + [url_for("static", filename=f"img/photo{i}.png")]
 
-        return "ok"
+        return render_template('carousel.html', **params)
 
 
 if __name__ == '__main__':
