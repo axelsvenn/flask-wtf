@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, url_for
 
-app, i = Flask(__name__), 1
+app, i, photos = Flask(__name__), 1, []
 
 
 @app.route('/carousel', methods=['POST', 'GET'])
 def carousel():
     params = {"title": "Красная планета",
-              "css_file": url_for('static', filename='css/style.css'), "photos": []}
+              "css_file": url_for('static', filename='css/style.css'), "photos": photos}
 
     if request.method == 'GET':
         return render_template('carousel.html', **params)
@@ -19,7 +19,7 @@ def carousel():
             fd.write(f.read())
             i, params["photos"] = i + 1, params["photos"] + [url_for("static", filename=f"img/photo{i}.png")]
 
-        return "Форма отправлена"
+        return "ok"
 
 
 if __name__ == '__main__':
