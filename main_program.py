@@ -4,9 +4,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 
-@app.route('/')
-@app.route('/index')
-def index():
+@app.route('/member')
+def member():
     param = {"title": "Заготовка"
              }
     return render_template('index.html', **param)
